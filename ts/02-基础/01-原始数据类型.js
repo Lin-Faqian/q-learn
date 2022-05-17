@@ -1,3 +1,5 @@
+"use strict";
+exports.__esModule = true;
 // 5种原始数据类型
 // 1.布尔值
 var bool = true;

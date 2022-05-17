@@ -32,3 +32,5 @@ let u: undefined = undefined
 function voidFun(): void{
   console.log("void")
 }
+
+export {} // 模块化
