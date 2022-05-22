@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FVue测试</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div id="app">
+		<p>{{name}}</p>
+		<p f-text="name"></p>
+		<p>{{age}}</p>
+		<p>{{doubleAge}}</p>
+		<input type="text" f-model="name">
+		<button @click="changeName">变</button>
+		<div f-html="html"></div>
+	</div>
+	<script src="compile.js"></script>
+	<script src="fvue.js"></script>
+	<script>
+		const app = new FVue({
+			el:"#app",
+			data:{
+				name:"lin",
+				age:18,
+				doubleAge:1818,
+				html:`<p>模板标签</p>`,
+				test: "这是测试",
+				foo:{
+					bar: "bar"
+				}
+			},
+			methods:{
+				changeName(){
+					this.name = "林"
+					console.log("变名字")
+				}
+			},
+			created(){
+				console.log("created")
+				setTimeout(()=>{
+					this.name = "变化测试"
+				},1500)
+			}
+		})
+		app.$data.test = "test 请求更新数据"
+		app.$data.foo.bar = "foo=>bar 请求更新数据"
+	</script>
+</body>
+</html>
