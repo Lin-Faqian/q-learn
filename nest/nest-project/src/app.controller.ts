@@ -9,4 +9,10 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+  @Get('.*?')
+  getNone(): string {
+    return `
+      <h1>404</h1>
+    `
+  }
 }
